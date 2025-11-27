@@ -1,0 +1,404 @@
+{
+  "datasets": [
+    {
+      "name": "c4af156a",
+      "displayName": "customers_orders_ny_gold",
+      "queryLines": [
+        "SELECT * FROM ecommerce.retail_customer.customers_orders_ny_gold"
+      ]
+    },
+    {
+      "name": "03ef15c8",
+      "displayName": "customers_orders_ca_gold",
+      "queryLines": [
+        "SELECT * FROM ecommerce.retail_customer.customers_orders_ca_gold"
+      ]
+    },
+    {
+      "name": "f12229d0",
+      "displayName": "customers_orders_va_gold",
+      "queryLines": [
+        "SELECT * FROM ecommerce.retail_customer.customers_orders_va_gold"
+      ]
+    },
+    {
+      "name": "70c1519b",
+      "displayName": "customers_sales_gold",
+      "queryLines": [
+        "SELECT * FROM ecommerce.retail_customer.customers_sales_gold"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "5858a816",
+      "displayName": "Retail Customer Dashboard",
+      "layout": [
+        {
+          "widget": {
+            "name": "56457f7b",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "f12229d0",
+                  "fields": [
+                    {
+                      "name": "city",
+                      "expression": "`city`"
+                    },
+                    {
+                      "name": "count(is_large_order)",
+                      "expression": "COUNT(`is_large_order`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`is_large_order` IN (TRUE)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "city",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "count(is_large_order)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": false
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": false,
+                "title": "Count of large orders per city in VA State"
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              }
+            },
+            "specExtensions": {
+              "widgetBorderColor": {
+                "dark": "#B1BFC9"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "5d57de97",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "c4af156a",
+                  "fields": [
+                    {
+                      "name": "order_week",
+                      "expression": "`order_week`"
+                    },
+                    {
+                      "name": "countdistinct(order_number)",
+                      "expression": "COUNT(DISTINCT `order_number`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "IN_RANGE(`order_week`, NULL, NULL)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "order_week",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "countdistinct(order_number)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": false
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Count of Unique order per week in NY State"
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "866ba705",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "70c1519b",
+                  "fields": [
+                    {
+                      "name": "monthly(order_date)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `order_date`)"
+                    },
+                    {
+                      "name": "avg(total_price)",
+                      "expression": "AVG(`total_price`)"
+                    },
+                    {
+                      "name": "median(total_price)",
+                      "expression": "MEDIAN(`total_price`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`state` IN ('CA')"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "monthly(order_date)",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "fields": [
+                    {
+                      "fieldName": "avg(total_price)"
+                    },
+                    {
+                      "fieldName": "median(total_price)"
+                    }
+                  ]
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Avergae and Median Order Price Per Month in CA State "
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 7,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "5f0ccb38",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "70c1519b",
+                  "fields": [
+                    {
+                      "name": "sum(units_purchased)",
+                      "expression": "SUM(`units_purchased`)"
+                    },
+                    {
+                      "name": "product_name",
+                      "expression": "`product_name`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(units_purchased)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                },
+                "color": {
+                  "fieldName": "product_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Propotion of Total Sales by Product\n"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 3,
+            "height": 7
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "locale": "en-US",
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
